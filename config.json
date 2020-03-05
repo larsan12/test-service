@@ -1,0 +1,17 @@
+{
+  "api": {
+    "port": 1999
+  },
+  "storage": {
+    "host": "localhost",
+    "port": 5432,
+    "database": "db_platform",
+    "user": "admin_rw",
+    "password": "postgres",
+    "storageType": "pg"
+  },
+  "session": {
+    "ttl": 600,
+    "privateKey": "testKey"
+  }
+}

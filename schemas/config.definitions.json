@@ -1,0 +1,68 @@
+{
+  "definitions": {
+    "storageEntry": {
+      "$id": "config.def.storageEntry",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host",
+        "port",
+        "database",
+        "user",
+        "password"
+      ],
+      "properties": {
+        "host": {
+          "type": "string",
+          "anyOf": [{"format": "hostname"}, {"format": "ipv6"}, {"format": "ipv4"}]
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "database": {
+          "type": "string",
+          "minimumLength": 1
+        },
+        "user": {
+          "type": "string",
+          "minimumLength": 1
+        },
+        "password": {
+          "type": "string",
+          "minimumLength": 1
+        },
+        "storageType": {
+          "type": "string",
+          "minimumLength": 1
+        }
+      }
+    },
+    "redisEntry": {
+      "$id": "config.def.redisEntry",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "host",
+        "port"
+      ],
+      "properties": {
+        "host": {
+          "type": "string",
+          "anyOf": [{"format": "hostname"}, {"format": "ipv6"}, {"format": "ipv4"}]
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "db": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16
+        }
+      }
+    }
+  }
+}
