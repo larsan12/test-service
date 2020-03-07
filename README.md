@@ -14,6 +14,7 @@
 ./middleware - express middlewares  
 ./routes - express routes  
 ./schemas - схемы для валидации запросов и данных в формате jsonschema  
+./services - сервисы и основная логика приложения  
 ./test - тесты  
 
 ## Запросы
