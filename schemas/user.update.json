@@ -1,0 +1,21 @@
+{
+    "$id": "user.update",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id"],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "minimum": 123
+        },
+        "password": {
+            "type": "string",
+            "minimumLength": 6,
+            "maximumLength": 50
+        },
+        "enabled": {
+            "type": "boolean"
+        }
+    }
+}
+  

@@ -5,13 +5,14 @@
   "storage": {
     "host": "localhost",
     "port": 5432,
-    "database": "db_platform",
-    "user": "admin_rw",
+    "database": "main",
+    "schema": "test",
+    "user": "postgres",
     "password": "postgres",
     "storageType": "pg"
   },
   "session": {
-    "ttl": 600,
+    "ttl": 6000,
     "privateKey": "testKey"
   }
 }

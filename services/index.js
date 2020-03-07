@@ -1,8 +1,9 @@
 /* eslint-disable camelcase, require-jsdoc */
-const UsersDao = require('../dao/users-dao');
+const UsersDao = require('../dao/UsersDao');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const BaseError = require('../components/base-error');
+const log = require('winston');
 
 /**
  * @class CommandHandler
@@ -10,7 +11,7 @@ const BaseError = require('../components/base-error');
  */
 class CommandHandler {
     constructor(pool, config) {
-        this.usersDao = new UsersDao({pool}, this);
+        this.usersDao = new UsersDao({pool, ...config}, this);
         this.config = config;
     }
 

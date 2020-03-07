@@ -21,6 +21,7 @@
     "jest": true,
   },
   "rules": {
+    "new-cap": "off",
     "array-callback-return": [
       "error"
     ],

@@ -1,5 +1,5 @@
 const knex = require('knex')({client: 'pg'});
-const log = require('@bb/stack_log');
+const log = require('winston');
 /**
  * @class
  */
@@ -14,7 +14,7 @@ class IDao {
      * @param {Object} commandHandler - commandHandler
      */
     constructor(config, commandHandler) {
-        const {pool} = config;
+        const {pool, storage: {schema}} = config;
         this.pool = pool;
         this.knex = knex;
         this.commandHandler = commandHandler;
@@ -22,17 +22,7 @@ class IDao {
         /*
          * create and decorate knex instances
          */
-        this.selectCount = () => this.decorate(knex.count('*'));
-        this.billingSchema = () => this.decorate(knex.withSchema('billing'));
-        this.games = () => this.decorate(knex.withSchema('billing').from('games'));
-        this.draws = () => this.decorate(knex.withSchema('billing').from('draw_history'));
-        this.gamblers = () => this.decorate(knex.withSchema('billing').from('gamblers'));
-        this.providers = () => this.decorate(knex.withSchema('billing').from('providers'));
-        this.platforms = () => this.decorate(knex.withSchema('billing').from('platforms'));
-        this.providerTransactions = () => this.decorate(knex.withSchema('billing').from('provider_transactions'));
-        this.providerRollbacks = () => this.decorate(knex.withSchema('billing').from('provider_rollbacks'));
-        this.platformTransactions = () => this.decorate(knex.withSchema('billing').from('platform_transactions'));
-        this.platformRollbacks = () => this.decorate(knex.withSchema('billing').from('platform_rollbacks'));
+        this.users = () => this.decorate(knex.withSchema(schema).from('users'));
     }
 
     /**

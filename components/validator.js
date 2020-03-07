@@ -1,5 +1,7 @@
+/* eslint-disable require-jsdoc, valid-jsdoc */
 const Ajv = require('ajv');
 const fs = require('fs');
+const log = require('winston');
 
 class ValidationError extends Error {
     constructor(schemaName, errors) {
@@ -59,7 +61,7 @@ class JSONValidator {
     validate(schemaId, data) {
         const validationResult = this._validator.validate(schemaId, data);
         if (!validationResult) {
-            console.log(this._validator.errorsText(this._validator.errors));
+            log.log(this._validator.errorsText(this._validator.errors));
             throw new ValidationError(schemaId, this._validator.errors);
         }
     }

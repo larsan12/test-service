@@ -1,0 +1,26 @@
+{
+    "$id": "user.register",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "login",
+        "password",
+        "enabled"
+    ],
+    "properties": {
+        "password": {
+            "type": "string",
+            "minimumLength": 6,
+            "maximumLength": 50
+        },
+        "login": {
+            "type": "string",
+            "minimumLength": 4,
+            "maximumLength": 20
+        },
+        "enabled": {
+            "type": "boolean"
+        }
+    }
+}
+  

@@ -1,4 +1,4 @@
-const log = require('@bb/stack_log');
+const log = require('winston');
 
 module.exports = func => async (req, res, next) => {
     try {

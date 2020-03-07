@@ -1,5 +1,5 @@
-const log = require('@bb/stack_log');
-const BaseError = require('../../components/base-error');
+const log = require('winston');
+const BaseError = require('../components/base-error');
 
 const send = (err, req, res, next) => {
     if (err instanceof BaseError) {
