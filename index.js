@@ -5,12 +5,11 @@ const log = require('./components/logger');
 
 // middleware
 const bodyParser = require('body-parser');
-const validateBody = require('./middleware/validate-body');
 const send = require('./middleware/send');
 const auth = require('./middleware/auth');
 
 // services
-const {storage, api, session} = require('./components/config');
+const {storage, api, session} = require('./config');
 const CommandHandler = require('./services');
 const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
@@ -26,7 +25,6 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(auth(commandHandler));
-app.use(validateBody);
 app.use('/', authEndpoints);
 app.use('/', usersEndpoints);
 app.use(send);

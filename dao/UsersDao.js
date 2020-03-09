@@ -89,12 +89,12 @@ class UsersDao extends IDao {
             enabled: 'enabled',
         };
 
-        const query = this
+        const data = await this
             .users()
             .select(fields)
-            .parseParams(params, fields);
+            .parseParams(params, fields)
+            .pool();
 
-        const data = await query.pool();
         const totalSize = (await this
             .users()
             .count('*')
